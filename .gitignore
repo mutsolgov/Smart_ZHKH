@@ -152,3 +152,6 @@ media/
 node_modules
 
 docker-compose.yml
+
+*/migrations/*
+!*/migrations/__init__.py
