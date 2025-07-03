@@ -1,4 +1,5 @@
 from django.db import models
+from accounts.models import Account
 
 class Charge(models.Model):
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
