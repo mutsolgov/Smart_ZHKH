@@ -30,7 +30,7 @@ class Account(models.Model):
     def save(self, *args, **kwargs):
         # При установке is_active=True снимем флаг с других счетов пользователя
         if self.is_active:
-            Account.objects.filte(user=self.user, is_active=True).exclude(pk=self.pk).update(is_active=False)
+            Account.objects.filter(user=self.user, is_active=True).exclude(pk=self.pk).update(is_active=False)
         super().save(*args, **kwargs)
 
     def __str__(self):
