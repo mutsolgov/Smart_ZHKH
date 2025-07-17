@@ -6,3 +6,12 @@
 
 <h3>Начисления</h3>
 <a href="{% url 'charge-create' account.id %d}" class="btn btn-primary mb-2">Добавить начисление</a>
+<ul class="list-group mb-4">
+    {% for ch in account.charges.all %}
+        <li class="list-group-item d-flex justify-content-between">
+            <div>
+                {{ ch.period|date:"m.Y" }} — {{ ch.service_name }}: {{ ch.amount }} ₽
+                <span class="badge bg-{{ ch.status == 'paid' and 'success' or 'warning' }}">{{ ch.get_status_display }}</span>
+            </div>
+        </li>
+</ul>
