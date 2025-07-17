@@ -1,0 +1,8 @@
+{% exdends 'base.html' %}
+{% bloack content %}
+<h2>Счет № {{ account.number }}</h2>
+<p><stong> Описание:</stong> {{ account.description }}</p>
+<hr>
+
+<h3>Начисления</h3>
+<a href="{% url 'charge-create' account.id %d}" class="btn btn-primary mb-2">Добавить начисление</a>
