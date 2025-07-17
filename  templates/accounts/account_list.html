@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Лицевые счета</h2>
+<a href="{% url 'account-create' %}" class="btn btn-success mb-3"> Добавить счет</a>
+{% if accounts %}
+  <ul class="list-group">
+    {% for acc in accounts %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{% url 'account-detail' acc.id %}">№ {{ acc.number }} — {{ acc.description }}</a>
+        <span>
+          <a href="{% url 'account-edit' acc.id %}" class="btn btn-sm btn-outline-secondary">Ред.</a>
+          <a href="{% url 'account-delete' acc.id %}" class="btn btn-sm btn-outline-danger">Удалить</a>
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>У вас пока нет лицевых счетов.</p>
+{% endif %}
+{% endblock %}
