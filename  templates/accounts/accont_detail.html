@@ -21,3 +21,11 @@
         <li class="list-group-item">Нет начислений</li>
     {% endfor %}
 </ul>
+
+<h3>Платежи</h3>
+<ul class="list-group">
+    {% for pay in account.charges.all|flatatt:"payments" %}
+        <li class="list-group-item">
+            {{ pay.date|date:d.m.Y H:i" }} — {{ pay.amount  }} ₽
+        </li>
+</ul>
