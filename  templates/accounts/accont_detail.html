@@ -28,4 +28,8 @@
         <li class="list-group-item">
             {{ pay.date|date:d.m.Y H:i" }} — {{ pay.amount  }} ₽
         </li>
+    {% empty %}
+        <li class="list-group-item">Нет платежей</li>
+    {% endfor %}
 </ul>
+{% endblock %}
