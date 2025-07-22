@@ -13,5 +13,11 @@
                 {{ ch.period|date:"m.Y" }} — {{ ch.service_name }}: {{ ch.amount }} ₽
                 <span class="badge bg-{{ ch.status == 'paid' and 'success' or 'warning' }}">{{ ch.get_status_display }}</span>
             </div>
+            <div>
+                <a href="{% url 'charge-detail' ch.id %}" class="btn btn-sm btn-outline-info">Подробнее</a>
+            </div>
         </li>
+    {% empty %}
+        <li class="list-group-item">Нет начислений</li>
+    {% endfor %}
 </ul>
